@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\App\Security;
+namespace App\Tests\Security;
 
 use App\Tests\Mock\Entity\User;
 use App\Tests\Mock\JWTEncoderTrait;

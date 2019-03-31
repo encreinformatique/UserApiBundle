@@ -1,6 +1,6 @@
 <?php
 
-namespace tests\App\Controller\App;
+namespace App\Tests\Controller\App;
 
 use App\Tests\Mock\Entity\User;
 use App\Tests\Mock\JWTEncoderTrait;
@@ -9,7 +9,6 @@ use Doctrine\ORM\EntityRepository;
 use EncreInformatique\UserApiBundle\Controller\TokensController;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\EncoderFactory;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
