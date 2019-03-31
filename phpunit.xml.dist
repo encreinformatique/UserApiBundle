@@ -20,6 +20,8 @@
         <whitelist>
             <directory>./</directory>
             <exclude>
+                <file>./UserApiBundle.php</file>
+                <directory suffix=".php">./DependencyInjection</directory>
                 <directory suffix=".php">./vendor</directory>
                 <directory suffix=".php">./Tests</directory>
             </exclude>
