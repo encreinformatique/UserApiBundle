@@ -5,6 +5,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 58ffb2c18286a0da516024485b3777dbe1958086fc2550ec5517e5d8cc218491
     docker:
       # Specify the version you desire here
       - image: circleci/php:7.1-node-browsers
@@ -33,7 +35,16 @@ jobs:
             - v1-dependencies-
 
       - run: composer install -n --prefer-dist
-
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            # download test reporter as a static binary
+                     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+                     chmod +x ./cc-test-reporter
+      - run:
+          name: Run tests
+          command: |
+            sudo docker-php-ext-enable xdebug
       - save_cache:
           key: v1-dependencies-{{ checksum "composer.json" }}
           paths:
@@ -53,6 +64,11 @@ jobs:
 #      - run: php artisan migrate --env=testing --database=sqlite_testing --force
 
       # run tests with phpunit or codecept
-      - run: ./vendor/bin/phpunit
+      - run:
+          name: Run Tests
+          command: |
+            ./cc-test-reporter before-build
+            ./vendor/bin/phpunit --coverage-clover clover.xml
+            ./cc-test-reporter after-build --coverage-input-type clover --exit-code $?
 #      - run: ./vendor/bin/codecept build
 #      - run: ./vendor/bin/codecept run
