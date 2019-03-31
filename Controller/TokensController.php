@@ -6,7 +6,7 @@
  * Time: 20:22
  */
 
-namespace App\Controller;
+namespace EncreInformatique\UserApiBundle\Controller;
 
 use FOS\RestBundle\Controller\Annotations as Rest;
 use FOS\RestBundle\Controller\ControllerTrait;
