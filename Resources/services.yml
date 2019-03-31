@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    bind:
+      $entitiesClass:
+        user: '%user_api_bundle.entities.user%'
+
+  # controllers are imported separately to make sure services can be injected
+  # as action arguments even if you don't extend any base controller class
+  EncreInformatique\UserApiBundle\Controller\:
+    resource: '../Controller'
+    tags: ['controller.service_arguments']

@@ -1,0 +1,4 @@
+
+api_tokens:
+  type: rest
+  resource: EncreInformatique\UserApiBundle\Controller\TokensController

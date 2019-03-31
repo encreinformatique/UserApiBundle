@@ -1,0 +1,25 @@
+{
+  "name": "encreinformatique/user-api-bundle",
+  "license": "MIT",
+  "type": "symfony-bundle",
+  "autoload": {
+    "psr-4": {
+      "EncreInformatique\\UserApiBundle\\": ""
+    },
+    "exclude-from-classmap": [
+      "Tests/"
+    ]
+  },
+  "require": {
+    "php": ">=7.1",
+    "friendsofsymfony/rest-bundle": "^2.5",
+    "lexik/jwt-authentication-bundle": "^2.6",
+    "sensio/framework-extra-bundle": "^5.0",
+    "symfony/security-bundle": "^3.3|^4.0"
+  },
+  "require-dev": {
+    "nelmio/api-doc-bundle": "^3.0",
+    "symfony/config": "^3.3|^4.0",
+    "symfony/http-kernel": "^3.3|^4.0"
+  }
+}
