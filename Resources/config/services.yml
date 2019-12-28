@@ -9,3 +9,9 @@ services:
   EncreInformatique\UserApiBundle\Controller\:
     resource: '../Controller'
     tags: ['controller.service_arguments']
+
+  # importing commands
+  EncreInformatique\UserApiBundle\Command\:
+    resource: '../../Command'
+    autowire: true
+    autoconfigure: true
