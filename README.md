@@ -47,3 +47,12 @@ security:
                     
     ...
 ```
+
+### Commandes
+
+On dispose de deux commandes : 
+
+* `users:create` : création d'utilisateur
+* `users:profile:change-password` : changement de mot de passe
+
+Lors de la création d'untilisateur, si une propriété email est détecté, l'email est demandé.
