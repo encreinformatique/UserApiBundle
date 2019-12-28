@@ -24,7 +24,7 @@ class User extends UserAlias
      * @param string $username
      * @return User
      */
-    public function setUsername(string $username): User
+    public function setUsername(string $username): UserAlias
     {
         $this->username = $username;
         return $this;
@@ -34,7 +34,7 @@ class User extends UserAlias
      * @param string $password
      * @return User
      */
-    public function setPassword(string $password): User
+    public function setPassword(string $password): UserAlias
     {
         $this->password = $password;
         return $this;
