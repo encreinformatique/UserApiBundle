@@ -52,7 +52,7 @@ class ChangePasswordCommand extends Command
 
         if (!$user) {
             $output->writeln(sprintf('No user found for %s', $userName));
-            return;
+            return 0;
         }
 
         $helper = $this->getHelper('question');
@@ -60,19 +60,19 @@ class ChangePasswordCommand extends Command
         $question->setHidden(true);
         $question->setHiddenFallback(false);
         if (!$password = $helper->ask($input, $output, $question)) {
-            return;
+            return 0;
         }
 
         $question = new Question('Please confirm the new password:');
         $question->setHidden(true);
         $question->setHiddenFallback(false);
         if (!$password2 = $helper->ask($input, $output, $question)) {
-            return;
+            return 0;
         }
 
         if ($password !== $password2) {
             $output->writeln('The password does not match.');
-            return;
+            return 0;
         }
 
         $encodedPassword = $this->passwordEncoder->encodePassword($user, $password);
@@ -82,5 +82,7 @@ class ChangePasswordCommand extends Command
         $this->entityManager->flush();
 
         $output->writeln('The password has been saved.');
+
+        return 0;
     }
 }
