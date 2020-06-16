@@ -1,4 +1,4 @@
 
 api_tokens:
-  type: rest
+  type: annotation
   resource: EncreInformatique\UserApiBundle\Controller\TokensController

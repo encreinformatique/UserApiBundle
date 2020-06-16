@@ -52,7 +52,7 @@ class CreateCommand extends Command
 
         if ($user) {
             $output->writeln(sprintf('The user %s already exists', $userName));
-            return;
+            return 0;
         }
 
         $helper = $this->getHelper('question');
@@ -60,19 +60,19 @@ class CreateCommand extends Command
         $question->setHidden(true);
         $question->setHiddenFallback(false);
         if (!$password = $helper->ask($input, $output, $question)) {
-            return;
+            return 0;
         }
 
         $question = new Question('Please confirm the password:');
         $question->setHidden(true);
         $question->setHiddenFallback(false);
         if (!$password2 = $helper->ask($input, $output, $question)) {
-            return;
+            return 0;
         }
 
         if ($password !== $password2) {
             $output->writeln('The password does not match.');
-            return;
+            return 0;
         }
 
         /** @var \EncreInformatique\UserApiBundle\Model\User $user */
@@ -92,7 +92,7 @@ class CreateCommand extends Command
 
             if (!$email = $helper->ask($input, $output, $question)) {
                 $output->writeln('No email has been specify.');
-                return;
+                return 0;
             }
 
             $user->setEmail($email);
@@ -103,5 +103,7 @@ class CreateCommand extends Command
         $this->entityManager->flush();
 
         $output->writeln('The user has been created.');
+
+        return 0;
     }
 }

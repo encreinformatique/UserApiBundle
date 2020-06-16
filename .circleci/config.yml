@@ -34,7 +34,8 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: composer install -n --prefer-dist
+      - run: sudo composer self-update
+      - run: COMPOSER_MEMORY_LIMIT=-1 composer install -n --prefer-dist
       - run:
           name: Setup Code Climate test-reporter
           command: |
