@@ -56,3 +56,7 @@ On dispose de deux commandes :
 * `users:profile:change-password` : changement de mot de passe
 
 Lors de la création d'untilisateur, si une propriété email est détecté, l'email est demandé.
+
+### Token
+
+Pour le JWT Token, les instructions sont sur le [bundle de Lewik](https://github.com/lexik/LexikJWTAuthenticationBundle/blob/master/Resources/doc/index.md#installation).
